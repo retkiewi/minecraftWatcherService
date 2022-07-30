@@ -8,7 +8,7 @@ def isPortTaken(port):
 
 def is_mc_stopped():
     client = docker.from_env()
-    return client.containers.list(filters={'name': 'mc'})[0].status == 'exited'
+    return client.containers.list(all=True, filters={'name': 'mc'})[0].status == 'exited'
 
 def start_mc_container():
     client = docker.from_env()
