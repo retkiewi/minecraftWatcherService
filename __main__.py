@@ -5,7 +5,6 @@ from service import MinecraftWatcherService
 def main():
     service = MinecraftWatcherService()
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect(('127.0.0.1', 25565))
     
     try:
         service.start()
