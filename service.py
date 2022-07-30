@@ -1,7 +1,7 @@
 from threading import Thread
 import time
 import docker
-from utils import get_running_containers
+from utils import is_mc_stopped
 
 class Service(Thread):
     def __init__(self, port=25565, pooling_interval=10):
@@ -15,7 +15,7 @@ class Service(Thread):
         self.running = True
 
         while self.running:
-            print(f"Currently running containers: {get_running_containers()}.")
+            print(f"mc container status: {'stopped' if is_mc_stopped() else 'running'}.")
             time.sleep(self.pooling_interval)
 
     def stop(self):

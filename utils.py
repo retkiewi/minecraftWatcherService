@@ -7,10 +7,10 @@ def isPortTaken(port):
         return sock.connect_ex(('127.0.0.1', port)) == 1
 
 
-def get_running_containers():
+def is_mc_stopped():
     client = docker.from_env()
-    return client.containers.list(filters={'status': 'running'})
+    return len(client.containers.list(filters={'status': 'stopped', 'name': 'mc'})) > 0
 
-def start_mc_container(port=25565):
+def start_mc_container():
     client = docker.from_env()
     client.containers.list(filters={'status': 'stopped', 'name': 'mc'})[0].start()
