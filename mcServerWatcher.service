@@ -5,6 +5,7 @@ Description=A simple service watching for connection attempts to a minecraft ser
 
 [Service]
 ExecStart=python3 /lib/systemd/minecraftWatcherService
+Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
