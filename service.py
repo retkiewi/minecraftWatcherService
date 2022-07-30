@@ -3,7 +3,8 @@ import time
 from utils import isPortTaken
 
 class Service(Thread):
-    def __init__(self, port=25565, pooling_interval=5):
+    def __init__(self, port=25565, pooling_interval=10):
+        super().__init__()
         self.running = False
         self.port = port
         self.pooling_interval = pooling_interval
