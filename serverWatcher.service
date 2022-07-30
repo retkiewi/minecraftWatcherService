@@ -1,0 +1,10 @@
+#Heavily inspired by https://github.com/torfsen/python-systemd-tutorial/blob/master/python_demo_service.service
+
+[Unit]
+Description=A simple service watching for connection attempts to a minecraft server when the server is down. When a connection is detected the service starts the minecraft server.
+
+[Service]
+ExecStart=python /lib/systemd/minecraftWatcherService
+
+[Install]
+WantedBy=multi-user.target
