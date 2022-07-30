@@ -15,7 +15,7 @@ class Service(Thread):
         self.running = True
 
         while self.running:
-            print(f"Currently running containers: {get_running_containers}.")
+            print(f"Currently running containers: {get_running_containers()}.")
             time.sleep(self.pooling_interval)
 
     def stop(self):
