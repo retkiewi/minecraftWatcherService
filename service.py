@@ -15,7 +15,7 @@ class Service(Thread):
         self.running = True
 
         while self.running:
-            print(f"mc container status: {'stopped' if is_mc_stopped() else 'running'}.")
+            print(f"mc container status: {is_mc_stopped()}.")
             time.sleep(self.pooling_interval)
 
     def stop(self):
