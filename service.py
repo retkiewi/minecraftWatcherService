@@ -1,6 +1,7 @@
 from threading import Thread
 import time
-from utils import isPortTaken
+import docker
+from utils import get_running_containers
 
 class Service(Thread):
     def __init__(self, port=25565, pooling_interval=10):
@@ -14,7 +15,7 @@ class Service(Thread):
         self.running = True
 
         while self.running:
-            print(f"Port {self.port} is currently {'taken' if isPortTaken(self.port) else 'open'}.")
+            print(f"Currently running containers: {get_running_containers}.")
             time.sleep(self.pooling_interval)
 
     def stop(self):
