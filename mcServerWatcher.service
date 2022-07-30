@@ -4,7 +4,7 @@
 Description=A simple service watching for connection attempts to a minecraft server when the server is down. When a connection is detected the service starts the minecraft server.
 
 [Service]
-ExecStart=python /lib/systemd/minecraftWatcherService
+ExecStart=python3 /lib/systemd/minecraftWatcherService
 
 [Install]
 WantedBy=multi-user.target
