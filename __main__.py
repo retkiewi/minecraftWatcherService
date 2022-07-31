@@ -10,7 +10,13 @@ def main():
         service.start()
 
         while service.is_alive():
-            print(client_socket.listen(1), flush=True)
+            if service.mc_stopped:
+                client_socket.bind('127.0.0.1', port=25565)
+                client_socket.listen()
+                waiting = True
+                while waiting:
+                    print(f"Listening for connections: {client_socket.recv(100)}")
+                    time.sleep(5)
             
             time.sleep(5)
 
